@@ -1,0 +1,116 @@
+# ========================================测试环境配置，禁止修改===================================================
+getto1:
+  uploadPath: D:/var/uploaded_files/
+  #公司id
+  corpId: ww0f67e7ac94cdaa70
+  #当前应用id
+  agentId: 1000003
+  #微信官方通讯录应用id
+  wxAddressBookAgentid: 1000000
+  #当前项目访问url
+  myServiceUrl: http://xcx.mynatapp.cc/om-manager-api/
+logging:
+  level:
+    root: error
+    com.getto1: debug
+security:
+  basic:
+    enabled: false
+spring:
+  datasource:
+    basic:
+      type: com.alibaba.druid.pool.DruidDataSource
+      driverClassName: com.mysql.jdbc.Driver
+      url: jdbc:mysql://192.168.0.20:3306/qywxapp_basic?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true
+      username: '{cipher}AQBB9M0IUr/nXSrqdr1vGKQFQc0pb2duhZuNi5PXGIBiatwJ82ze5jQL4Jn7tkv2J3CBlyIVbBfKOvoQgZzsvnfu5ittRes2KwHIUI4OkXbuYyYRilAtdGaUxs/HiryWI1VOcmbfF1Ec80AuAh5t6SaQ+7LzXPsOTOViMXtPP63QFJNzsG2fDPAXOJxnk88gCF1FKscY4uLxqnAJTgz8DQSjUeq45qHjbqLzuPaq2ICZFP1JexK/OXv0SGnDq3yE38wH9iZTNnwMIkm4KS6hg9mJ/X7qhmdXRzMJ0g2r08w2340tBZmGlrJdELObKlKLMinX8FDadmw810QFBuyfltYf4C4gs0pUwk7Lxas+3DyabvXAUOemexL0eY9yYrJRT9Y='
+      password: '{cipher}AQBxZee1Nai1In9KBzM2ZMWwRQwkRTOagW1/98WyEs3VujfKE8EiffoVeW6XX40Hdz6sFaTTP36qu7kGdBpFeO9VJDUgYsZiRnGLdyUvz0g9eoeC7h4qGzqeMkZKDMekSUhenQfKd18s3lt99ToP+gqICfkvzxUjvMesW6gAmPcQZbbo9QQQDL42XaAMZ0IA6JGiS7Sq35dCjssLEmeU5xTNjUOrAh+IcNjST2Expv8TjB2E3Y9iY+lWYX1NoAiLtclyIAZelBfchXV7GwC08Vny7svJRawYsQVTK1Lki/t9ufbrlksyIAE/dGNTObK42T3FYUr/3rPZzTgbm0aCjEmdICx3/PHXpUk6goJW8O06tau6MduYG/728fHQnqu3mZk='
+      allowMultiQueries: true
+      initialSize: 1
+      minIdle: 2
+      maxActive: 5
+      # 配置获取连接等待超时的时间
+      maxWait: 60000
+      # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+      timeBetweenEvictionRunsMillis: 60000
+      # 配置一个连接在池中最小生存的时间，单位是毫秒
+      minEvictableIdleTimeMillis: 30000
+      validationQuery: select 'x'
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      # 打开PSCache，并且指定每个连接上PSCache的大小
+      poolPreparedStatements: true
+      maxPoolPreparedStatementPerConnectionSize: 20
+      # 配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+      filters: stat,wall,slf4j
+      # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
+      connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+      # 合并多个DruidDataSource的监控数据
+      #useGlobalDataSourceStat: true
+    business:
+      type: com.alibaba.druid.pool.DruidDataSource
+      driverClassName: com.mysql.jdbc.Driver
+      url: jdbc:mysql://192.168.0.20:3306/saas?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true
+      username: '{cipher}AQBB9M0IUr/nXSrqdr1vGKQFQc0pb2duhZuNi5PXGIBiatwJ82ze5jQL4Jn7tkv2J3CBlyIVbBfKOvoQgZzsvnfu5ittRes2KwHIUI4OkXbuYyYRilAtdGaUxs/HiryWI1VOcmbfF1Ec80AuAh5t6SaQ+7LzXPsOTOViMXtPP63QFJNzsG2fDPAXOJxnk88gCF1FKscY4uLxqnAJTgz8DQSjUeq45qHjbqLzuPaq2ICZFP1JexK/OXv0SGnDq3yE38wH9iZTNnwMIkm4KS6hg9mJ/X7qhmdXRzMJ0g2r08w2340tBZmGlrJdELObKlKLMinX8FDadmw810QFBuyfltYf4C4gs0pUwk7Lxas+3DyabvXAUOemexL0eY9yYrJRT9Y='
+      password: '{cipher}AQBxZee1Nai1In9KBzM2ZMWwRQwkRTOagW1/98WyEs3VujfKE8EiffoVeW6XX40Hdz6sFaTTP36qu7kGdBpFeO9VJDUgYsZiRnGLdyUvz0g9eoeC7h4qGzqeMkZKDMekSUhenQfKd18s3lt99ToP+gqICfkvzxUjvMesW6gAmPcQZbbo9QQQDL42XaAMZ0IA6JGiS7Sq35dCjssLEmeU5xTNjUOrAh+IcNjST2Expv8TjB2E3Y9iY+lWYX1NoAiLtclyIAZelBfchXV7GwC08Vny7svJRawYsQVTK1Lki/t9ufbrlksyIAE/dGNTObK42T3FYUr/3rPZzTgbm0aCjEmdICx3/PHXpUk6goJW8O06tau6MduYG/728fHQnqu3mZk='
+      allowMultiQueries: true
+      initialSize: 1
+      minIdle: 3
+      maxActive: 20
+      # 配置获取连接等待超时的时间
+      maxWait: 60000
+      # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+      timeBetweenEvictionRunsMillis: 60000
+      # 配置一个连接在池中最小生存的时间，单位是毫秒
+      minEvictableIdleTimeMillis: 30000
+      validationQuery: select 'x'
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      # 打开PSCache，并且指定每个连接上PSCache的大小
+      poolPreparedStatements: true
+      maxPoolPreparedStatementPerConnectionSize: 20
+      # 配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+      filters: stat,wall,slf4j
+      # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
+      connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+      # 合并多个DruidDataSource的监控数据
+      #useGlobalDataSourceStat: true
+  redis:
+      host: 192.168.0.20
+      port: 6379
+      password:
+      # 连接超时时间（毫秒）
+      timeout: 10000
+      pool:
+        # 连接池中的最大空闲连接
+        max-idle: 8
+        # 连接池中的最小空闲连接
+        min-idle: 10
+        # 连接池最大连接数（使用负值表示没有限制）
+        max-active: 100
+        # 连接池最大阻塞等待时间（使用负值表示没有限制）
+        max-wait: -1
+  thymeleaf:
+        mode: LEGACYHTML5
+        cache: false
+  jackson:
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+  http:
+    multipart:
+      max-file-size: 30Mb
+      max-request-size: 30Mb
+  devtools:
+    restart:
+      enabled: true
+  zipkin:
+    base-url: http://192.168.0.12:9100
+
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+  mapper-locations: mybatis/**/*.xml
+  typeAliasesPackage: com.getto1.**.domain
+#配置缓存和session存储方式，默认ehcache,可选redis
+cacheType: redis
